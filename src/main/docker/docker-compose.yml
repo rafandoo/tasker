@@ -1,0 +1,19 @@
+# Network
+networks:
+  service-mesh:
+    external: false
+    name: ${TASKER_NETWORK_NAME}
+
+# Serviço
+services:
+  quarkus:
+    image: tasker:${TASKER_IMAGE_VERSION}
+    hostname: tasker
+    ports:
+      - ${TASKER_HTTP_PUBLIC_PORT:-8080}:8080
+    volumes:
+      # Hora do servidor passado para o container
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - service-mesh

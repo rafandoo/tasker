@@ -1,0 +1,42 @@
+---
+title: "Entidades do Projeto"
+---
+
+classDiagram
+    direction TB
+    class Category {
+        - long id
+        - String name
+        - Date createdAt
+        - Date updatedAt
+    }
+
+    class Task {
+        - long id
+        - String description
+        - int priority
+        - Date dueDate
+        - Status status
+        - Date createdAt
+        - Date updatedAt
+        - Category category
+        - User user
+    }
+
+    class User {
+        - long id
+        - String username
+        - String password
+        - String roles
+    }
+
+    class Status {
+        <<enumeration>>
+        TODO
+        DOING
+        DONE
+    }
+
+    Task "0..*" --> "1" Category : pertence a
+    Task "0..*" --> "1" User : atribuído a
+    Task ..> Status: usa

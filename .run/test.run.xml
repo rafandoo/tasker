@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="test" type="QuarkusGradleBridge">
+    <option name="arguments" />
+    <option name="goals" value="clean quarkusTest" />
+    <option name="vmOptions" />
+    <option name="workingDir" value="$PROJECT_DIR$" />
+    <method v="2" />
+  </configuration>
+</component>
